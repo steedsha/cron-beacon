@@ -2,7 +2,7 @@ name: beacon
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '7,17,27,37,47,57 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -15,4 +15,5 @@ jobs:
     steps:
       - run: |
           echo "event=${{ github.event_name }}"
+          echo "cron=${{ github.event.schedule }}"
           TZ=Asia/Shanghai date '+BJT %F %T'
